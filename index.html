@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dam Mo - カンボジア伝統の熟成塩ライム</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --angkor-red: #8B0000;
+            --matured-tan: #D2B48C; /* 熟成を象徴する褐色 [1] */
+            --herbal-green: #2E8B57;
+            --khmer-gold: #D4AF37;
+        }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fcfaf7; }
+        
+        /* Bento Gridの設定 */
+       .bento-container {
+            display: grid;
+            gap: 16px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            grid-template-areas:
+                "hero hero history"
+                "hero hero sun"
+                "ingredients kroeung kroeung"
+                "ingredients cta cta";
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        /* 各ボックスの基本スタイル */
+       .bento-box {
+            background: #fff;
+            border-radius: 24px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* 各エリアの定義 */
+       .box-hero { grid-area: hero; background-color: var(--angkor-red); color: white; min-height: 400px; }
+       .box-history { grid-area: history; background-color: var(--matured-tan); }
+       .box-sun { grid-area: sun; border: 2px solid var(--khmer-gold); }
+       .box-ingredients { grid-area: ingredients; background-color: #f0f4f0; }
+       .box-kroeung { grid-area: kroeung; background: linear-gradient(135deg, #fff 0%, #fef9e7 100%); }
+       .box-cta { grid-area: cta; background-color: #333; color: white; display: flex; align-items: center; justify-content: space-between; }
+
+        /* タイポグラフィ */
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-top: 0; }
+       .character-bubble {
+            background: white; color: #333; padding: 12px 16px; border-radius: 16px;
+            font-size: 0.9rem; position: relative; margin-bottom: 15px; display: inline-block;
+        }
+       .character-bubble::after {
+            content: ''; position: absolute; bottom: -8px; left: 20px;
+            border-width: 8px 8px 0; border-style: solid; border-color: white transparent;
+        }
+
+        /* レスポンシブ対応 (モバイル) */
+        @media (max-width: 768px) {
+           .bento-container {
+                grid-template-areas:
+                    "hero"
+                    "history"
+                    "sun"
+                    "kroeung"
+                    "ingredients"
+                    "cta";
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="bento-container">
+        <div class="bento-box box-hero">
+            <div class="character-bubble">「こんにちは！僕が3ヶ月見守った自信作だよ。」</div>
+            <h2>3ヶ月、太陽と眠り、<br>塩と目覚める。</h2>
+            <p>黄金色の半透明。それは100年前から続くカンボジアの知恵。</p>
+            </div>
+
+        <div class="bento-box box-history">
+            <h3 style="font-family: 'Playfair Display', serif;">祝宴の記憶</h3>
+            <p style="font-size: 0.9rem;">伝統スープ「ニェム・ゴウ」は、カンボジアの結婚式で愛されてきた特別な味です [2, 3]。</p>
+        </div>
+
+        <div class="bento-box box-sun">
+            <h4>華氏104度の魔法</h4>
+            <p style="font-size: 0.85rem;">皮が褐色に輝くまで、熱い太陽の下で1週間干し続けます [1, 4]。</p>
+        </div>
+
+        <div class="bento-box box-ingredients">
+            <h4>香りの基盤</h4>
+            <ul style="font-size: 0.85rem; padding-left: 18px;">
+                <li>ロムデン（ガランガル）</li>
+                <li>スレック・クレイ（レモングラス）</li>
+                <li>スレック・クロウチ・スウ</li>
+            </ul>
+            </div>
+
+        <div class="bento-box box-kroeung">
+            <div style="display: flex; gap: 10px;">
+                <div style="flex: 1;">
+                    <h3>三色のペースト</h3>
+                    <p>赤・黄・緑のクルーンが、料理に魔法をかけます [5, 6]。</p>
+                </div>
+                </div>
+        </div>
+
+        <div class="bento-box box-cta">
+            <div>
+                <h3>今すぐ体験する</h3>
+                <p>限定セット：熟成ライム＆スパイス</p>
+            </div>
+            <button style="background: var(--khmer-gold); border: none; padding: 12px 24px; border-radius: 50px; font-weight: bold; cursor: pointer;">
+                カートに入れる
+            </button>
+        </div>
+    </section>
+
+</body>
+</html>
