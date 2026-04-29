@@ -1,0 +1,17 @@
+/* キャラクターを上下にふわふわさせるアニメーション  */
+@keyframes floating {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); } /* 少しだけ傾けるのがコツ */
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.char-float {
+    animation: floating 3s ease-in-out infinite; /* 3秒かけて1往復、ずっと繰り返す */
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); /* 影をつけると浮遊感が強調されます */
+}
+
+/* 吹き出しも微妙に動かすとより「生きている」感が出ます */
+.bubble-float {
+    animation: floating 4s ease-in-out infinite;
+    animation-delay: 0.5s; /* キャラと動きのタイミングをずらす */
+}
