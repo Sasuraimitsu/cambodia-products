@@ -1,0 +1,745 @@
+:root {
+  --paper: #fff8ea;
+  --cream: #f6e5bf;
+  --cream-light: #fffaf0;
+  --ink: #3f2b1c;
+  --muted: #6d5945;
+  --terracotta: #bd4b31;
+  --terracotta-dark: #8f3324;
+  --leaf: #4f7b3b;
+  --leaf-light: #d8e6b0;
+  --blue: #1f4f8f;
+  --gold: #dca83a;
+  --line: rgba(63, 43, 28, 0.18);
+  --shadow: 0 18px 45px rgba(63, 43, 28, 0.16);
+  --shadow-soft: 0 8px 22px rgba(63, 43, 28, 0.12);
+  --radius: 8px;
+  --container: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+  line-height: 1.8;
+  background:
+    repeating-linear-gradient(90deg, rgba(63, 43, 28, 0.025) 0 1px, transparent 1px 22px),
+    var(--paper);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 20;
+  padding: 8px 12px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px clamp(18px, 4vw, 48px);
+  color: var(--cream-light);
+  background: rgba(63, 43, 28, 0.42);
+  border-bottom: 1px solid rgba(255, 248, 234, 0.25);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--ink);
+  background: var(--gold);
+  border: 2px solid rgba(255, 248, 234, 0.8);
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 28px);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.nav a {
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  border-color: var(--gold);
+}
+
+.hero {
+  position: relative;
+  min-height: 92svh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 112px clamp(20px, 5vw, 64px) 72px;
+  color: var(--cream-light);
+  background: #56331f;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(37, 24, 15, 0.88) 0%, rgba(61, 38, 23, 0.76) 42%, rgba(61, 38, 23, 0.16) 78%),
+    linear-gradient(180deg, rgba(37, 24, 15, 0.25), rgba(37, 24, 15, 0.42)),
+    url("../images/soup-illust.jpg") center right / cover no-repeat;
+  transform: scale(1.01);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 112px;
+  z-index: -1;
+  background:
+    repeating-linear-gradient(88deg, rgba(220, 168, 58, 0.22) 0 8px, rgba(255, 248, 234, 0.12) 8px 16px),
+    linear-gradient(180deg, transparent, rgba(37, 24, 15, 0.48));
+}
+
+.hero-content {
+  width: min(700px, 100%);
+}
+
+.eyebrow,
+.section-kicker,
+.small-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+
+h1 {
+  max-width: 12em;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(42px, 8vw, 82px);
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.hero-lead {
+  max-width: 620px;
+  margin-top: 24px;
+  font-size: clamp(16px, 2.4vw, 20px);
+  color: rgba(255, 250, 240, 0.92);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 12px 18px;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  font-weight: 800;
+  line-height: 1.25;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.button-primary {
+  color: #fff;
+  background: var(--terracotta);
+  border-color: var(--terracotta-dark);
+}
+
+.button-secondary {
+  color: var(--ink);
+  background: var(--cream-light);
+  border-color: rgba(63, 43, 28, 0.24);
+}
+
+.button-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.button-secondary .button-icon {
+  background: var(--leaf-light);
+}
+
+.hero-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  width: min(620px, 100%);
+  margin: 34px 0 0;
+  border: 1px solid rgba(255, 248, 234, 0.3);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255, 248, 234, 0.18);
+}
+
+.hero-points div {
+  padding: 12px;
+  background: rgba(63, 43, 28, 0.24);
+}
+
+.hero-points dt {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.hero-points dd {
+  margin: 2px 0 0;
+  font-weight: 800;
+}
+
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  color: rgba(255, 248, 234, 0.74);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.section-band {
+  padding: clamp(70px, 9vw, 112px) 0;
+}
+
+.section-band-green {
+  background:
+    linear-gradient(135deg, rgba(216, 230, 176, 0.68), rgba(255, 248, 234, 0.2)),
+    var(--cream-light);
+}
+
+.section-band-terracotta {
+  color: var(--cream-light);
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 248, 234, 0.08) 0 1px, transparent 1px 28px),
+    var(--terracotta-dark);
+}
+
+.container {
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.intro-grid,
+.recipe-layout,
+.taste-grid,
+.closing-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 72px);
+}
+
+.section-copy h2,
+.section-heading h2,
+.closing h2 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(30px, 5vw, 52px);
+  line-height: 1.22;
+  letter-spacing: 0;
+}
+
+.section-copy p,
+.section-heading p,
+.closing p {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.section-band-terracotta .section-heading p,
+.section-band-terracotta .section-kicker {
+  color: rgba(255, 248, 234, 0.78);
+}
+
+.section-kicker {
+  color: var(--terracotta);
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.align-left {
+  margin: 0;
+  text-align: left;
+}
+
+.character-panel {
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 250, 240, 0.84);
+  box-shadow: var(--shadow-soft);
+}
+
+.character-panel img {
+  width: min(330px, 100%);
+  margin: 0 auto;
+}
+
+.character-panel figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  display: grid;
+  grid-template-columns: 42% minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  min-height: 320px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--cream-light);
+  box-shadow: var(--shadow-soft);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.feature-card h3,
+.product-card h3 {
+  margin-top: 4px;
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+.feature-card p:not(.small-label),
+.product-card p {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.small-label {
+  color: var(--terracotta);
+}
+
+.steps {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 250, 240, 0.78);
+}
+
+.steps span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: #fff;
+  background: var(--leaf);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.steps p {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  color: var(--terracotta-dark);
+  font-weight: 900;
+  border-bottom: 2px solid currentColor;
+}
+
+.recipe-visual {
+  display: grid;
+  gap: 16px;
+}
+
+.recipe-main,
+.recipe-sub {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.recipe-main {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.recipe-sub {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+
+.taste-grid {
+  grid-template-columns: 0.88fr 1.12fr;
+}
+
+.taste-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.taste-list li {
+  padding: 18px;
+  border: 1px solid rgba(255, 248, 234, 0.28);
+  border-radius: var(--radius);
+  background: rgba(255, 248, 234, 0.08);
+}
+
+.taste-list strong,
+.taste-list span {
+  display: block;
+}
+
+.taste-list strong {
+  font-size: 18px;
+}
+
+.taste-list span {
+  margin-top: 4px;
+  color: rgba(255, 248, 234, 0.78);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--cream-light);
+  box-shadow: var(--shadow-soft);
+}
+
+.product-card-featured {
+  box-shadow: var(--shadow);
+}
+
+.product-media {
+  background: var(--cream);
+}
+
+.product-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.product-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.product-body .button {
+  width: 100%;
+  margin-top: auto;
+}
+
+.product-bullets {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0 22px;
+  padding: 0;
+  color: var(--muted);
+  list-style: none;
+}
+
+.product-bullets li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.product-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 7px;
+  height: 7px;
+  background: var(--leaf);
+  border-radius: 50%;
+}
+
+.shop-note {
+  display: none;
+  margin-top: 18px;
+  padding: 12px 14px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 250, 240, 0.78);
+  font-size: 14px;
+  text-align: center;
+}
+
+.shop-note.is-active {
+  display: block;
+  color: var(--terracotta-dark);
+  border-color: rgba(189, 75, 49, 0.45);
+  background: #fff0e8;
+}
+
+.closing-grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.05fr);
+}
+
+.closing .button {
+  margin-top: 28px;
+}
+
+.closing img {
+  width: min(520px, 100%);
+  margin-left: auto;
+  filter: drop-shadow(0 20px 28px rgba(63, 43, 28, 0.18));
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px clamp(20px, 5vw, 64px);
+  color: var(--cream-light);
+  background: var(--ink);
+  font-size: 14px;
+}
+
+.footer a {
+  border-bottom: 1px solid currentColor;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    align-items: flex-start;
+  }
+
+  .nav {
+    gap: 14px;
+  }
+
+  .hero {
+    min-height: 88svh;
+  }
+
+  .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(37, 24, 15, 0.84) 0%, rgba(55, 35, 22, 0.68) 54%, rgba(55, 35, 22, 0.35) 100%),
+      url("../images/soup-illust.jpg") center bottom / cover no-repeat;
+  }
+
+  h1 {
+    max-width: 10.5em;
+  }
+
+  .intro-grid,
+  .recipe-layout,
+  .taste-grid,
+  .closing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-row,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card img {
+    min-height: 220px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .closing img {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header {
+    padding: 12px 16px;
+  }
+
+  .brand span:last-child {
+    display: none;
+  }
+
+  .nav {
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 96px 20px 72px;
+  }
+
+  .hero-actions {
+    display: grid;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .hero-points {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    width: min(100% - 28px, var(--container));
+  }
+
+  .section-copy h2,
+  .section-heading h2,
+  .closing h2 {
+    font-size: clamp(28px, 10vw, 40px);
+  }
+
+  .section-heading {
+    text-align: left;
+  }
+
+  .feature-card,
+  .product-body,
+  .character-panel {
+    padding: 14px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
